@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.LoginPage;
-import setup.SetUp;
+import config.SetUp;
 import utils.Utils;
 
 public class LoginTestRunner extends SetUp {

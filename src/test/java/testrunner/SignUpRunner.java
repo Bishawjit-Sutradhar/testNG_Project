@@ -3,7 +3,7 @@ package testrunner;
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
 import pages.SignUpPage;
-import setup.SetUp;
+import config.SetUp;
 import utils.Utils;
 
 public class SignUpRunner extends SetUp {
