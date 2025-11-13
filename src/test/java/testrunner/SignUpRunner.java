@@ -1,15 +1,18 @@
 package testrunner;
 
 import com.github.javafaker.Faker;
+import org.json.simple.parser.ParseException;
 import org.testng.annotations.Test;
 import pages.SignUpPage;
 import config.SetUp;
 import utils.Utils;
 
+import java.io.IOException;
+
 public class SignUpRunner extends SetUp {
 
    @Test(priority = 1, description = "User can registration successfully")
-   public void signUp(){
+   public void signUp() throws IOException, ParseException {
        SignUpPage signUpPage=new SignUpPage(driver);
 
        Utils.scroll(driver,500);
@@ -26,6 +29,7 @@ public class SignUpRunner extends SetUp {
 
        signUpPage.doRegistration(firstName,lastName,email,password,phonenumber,address);
 
+       Utils.saveUserData(firstName,lastName,email,password,phonenumber,address);
 
 
    }

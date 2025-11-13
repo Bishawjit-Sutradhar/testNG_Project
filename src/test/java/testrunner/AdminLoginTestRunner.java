@@ -8,7 +8,7 @@ import pages.LoginPage;
 import config.SetUp;
 import utils.Utils;
 
-public class LoginTestRunner extends SetUp {
+public class AdminLoginTestRunner extends SetUp {
 
 
     @Test(priority = 1, description = "admin can login valid emain and password")
@@ -19,7 +19,7 @@ public class LoginTestRunner extends SetUp {
 
         String email="admin@test.com";
         String password="admin123";
-        loginPage.adminLogin(email,password);
+        loginPage.doLogin(email,password);
         DashboardPage dashboardPage=new DashboardPage(driver);
         String textHeaderActual= dashboardPage.textAdmin.getText();
         String textHeaderExpected="Admin Dashboard";
