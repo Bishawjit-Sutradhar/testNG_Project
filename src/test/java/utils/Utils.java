@@ -24,26 +24,16 @@ public class Utils {
        return (int) randomId;
     }
 
-    public static void saveUserData(String firstName, String lastName, String email, String password, String phoneNumber, String address) throws IOException, ParseException {
-        String url="./src/test/resources/users.json";
+    public static void saveUserData(JSONObject jsonObject, String filePath) throws IOException, ParseException {
         JSONParser jsonParser=new JSONParser();
-        JSONArray jsonArray= (JSONArray) jsonParser.parse(new FileReader(url));
-
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("firstName",firstName);
-        jsonObject.put("lastName",lastName);
-        jsonObject.put("email",email);
-        jsonObject.put("password",password);
-        jsonObject.put("phoneNumber",phoneNumber);
-        jsonObject.put("address",address);
+        JSONArray jsonArray= (JSONArray) jsonParser.parse(new FileReader(filePath));
 
         jsonArray.add(jsonObject);
 
-        FileWriter fileWriter=new FileWriter(url);
+        FileWriter fileWriter=new FileWriter(filePath);
         fileWriter.write(jsonArray.toJSONString());
         fileWriter.flush();
         fileWriter.close();
-
 
     }
 
