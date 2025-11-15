@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <suite name="Daily Finance">
-    <test name="User Login">
+    <test name="Admin Login">
         <classes>
             <class name="testrunner.AdminLoginTestRunner"></class>
         </classes>
@@ -8,6 +8,11 @@
     <test name="User Registration">
         <classes>
             <class name="testrunner.SignUpRunner"></class>
+        </classes>
+    </test>
+    <test name="User Login after resgistration">
+        <classes>
+            <class name="testrunner.UserLoginTestRunner"></class>
         </classes>
     </test>
 </suite>

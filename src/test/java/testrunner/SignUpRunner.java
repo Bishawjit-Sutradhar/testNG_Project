@@ -16,7 +16,7 @@ public class SignUpRunner extends SetUp {
 
     String filePath="./src/test/resources/users.json";
 
-   @Test(priority = 1, description = "User can registration successfully")
+   @Test(priority = 1, description = "User can registration successfully",groups = "smoke")
    public void signUp() throws IOException, ParseException {
 
 

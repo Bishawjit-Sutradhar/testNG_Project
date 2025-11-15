@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class UserLoginTestRunner extends SetUp {
 
-    @Test(priority = 1,description = "User login with valid credential after successfully register")
+    @Test(priority = 1,description = "User login with valid credential after successfully register",groups = "smoke")
     public void userLogin() throws IOException, ParseException {
         String url="./src/test/resources/users.json";
         LoginPage loginPage=new LoginPage(driver);
