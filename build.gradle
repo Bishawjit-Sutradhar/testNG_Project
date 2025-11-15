@@ -18,10 +18,26 @@ dependencies {
     implementation("com.github.javafaker:javafaker:1.0.2")
     // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
     implementation("com.googlecode.json-simple:json-simple:1.1.1")
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-csv
+    implementation("org.apache.commons:commons-csv:1.14.1")
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    implementation("io.qameta.allure:allure-testng:2.30.0")
 }
 
 test {
     useTestNG(){
-       suites "./src/test/resources/suite.xml"
+        if(project.hasProperty("email")&& project.hasProperty("password")){
+            systemProperties.put("email",project.property("email"))
+            systemProperties.put("password",project.property("password"))
+
+            print(project.property("email"))
+            print(project.property("password"))
+        }
+
+        if(project.hasProperty("suite")){
+            systemProperties.put("suite",project.property("suite"))
+        }
+
+       suites "./src/test/resources/"+project.property("suite")
     }
 }

@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
 
     @FindBy(id = "email")
-    WebElement txtEmail;
+    public WebElement txtEmail;
     @FindBy(id = "password")
-    WebElement txtPassword;
+    public WebElement txtPassword;
     @FindBy(css = "[type=submit]")
     WebElement btnSubmit;
 
