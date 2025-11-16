@@ -1,5 +1,7 @@
 package utils;
 
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -78,6 +80,13 @@ public class Utils {
         javascriptExecutor.executeScript("window.localStorage.setItem('authToken',arguments[0]);",authToken);
         javascriptExecutor.executeScript("window.localStorage.setItem('authTokenData',arguments[0]);",authTokenData);
         Thread.sleep(2000);
+
+    }
+    //Gmail API Integration
+    public static void setEnv(String key, String value) throws ConfigurationException {
+        PropertiesConfiguration config=new PropertiesConfiguration("./src/test/resources/config.properties");
+        config.setProperty(key,value);
+        config.save();
 
     }
 }

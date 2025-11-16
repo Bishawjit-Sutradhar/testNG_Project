@@ -2,12 +2,14 @@ package testrunner;
 
 import com.github.javafaker.Faker;
 import config.UserModel;
+import org.apache.commons.configuration.ConfigurationException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.SignUpPage;
 import config.SetUp;
+import services.GmailServices;
 import utils.Utils;
 
 import java.io.IOException;
@@ -17,7 +19,7 @@ public class SignUpRunner extends SetUp {
     String filePath="./src/test/resources/users.json";
 
    @Test(priority = 1, description = "User can registration successfully",groups = "smoke")
-   public void signUp() throws IOException, ParseException {
+   public void signUp() throws IOException, ParseException, ConfigurationException, javax.naming.ConfigurationException, InterruptedException {
 
 
 
@@ -30,7 +32,7 @@ public class SignUpRunner extends SetUp {
 
        String firstName=faker.name().firstName();
        String lastName=faker.name().lastName();
-       String email="sqa.engineer"+ Utils.randomId(1000,9999)+"@gmail.com";
+       String email="sqa.engineer+"+Utils.randomId(1000,9999)+"@gmail.com";
        String password="1234";
        String phonenumber="0175"+ Utils.randomId(1000000,9999999);
        String address=faker.address().fullAddress();
@@ -55,6 +57,11 @@ public class SignUpRunner extends SetUp {
 
        Utils.saveUserData(jsonObject,filePath);
 
+       Thread.sleep(5000);
+
+       GmailServices gmailServices=new GmailServices();
+       String myEmail= gmailServices.readLatestEmail();
+       System.out.println(myEmail);
 
    }
 
@@ -67,7 +74,7 @@ public class SignUpRunner extends SetUp {
 
        Faker faker=new Faker();
        String firstName=faker.name().firstName();
-       String email="sqa.engineer"+Utils.randomId(1000,9999)+"@gmail.com";
+       String email="sqa.engineer+"+Utils.randomId(1000,9999)+"@gmail.com";
        String password="1234";
        String phoneNumber="0175"+Utils.randomId(1000000,9999999);
 
