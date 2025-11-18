@@ -1,6 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","7231","Verify profile user name","Daily Finance","2025-11-15","passed","2025-11-15","testrunner.AdminLoginTestRunner","Admin Login","testrunner.AdminLoginTestRunner","viewProfile"
-"","4198","User can registration successfully","Daily Finance","2025-11-15","passed","2025-11-15","testrunner.SignUpRunner","User Registration","testrunner.SignUpRunner","signUp"
-"","1478","admin can login valid emain and password","Daily Finance","2025-11-15","passed","2025-11-15","testrunner.AdminLoginTestRunner","Admin Login","testrunner.AdminLoginTestRunner","doLogin"
-"","829","User login with valid credential after successfully register","Daily Finance","2025-11-15","passed","2025-11-15","testrunner.UserLoginTestRunner","User Login after resgistration","testrunner.UserLoginTestRunner","userLogin"
-"","360","Admin can logout","Daily Finance","2025-11-15","passed","2025-11-15","testrunner.AdminLoginTestRunner","Admin Login","testrunner.AdminLoginTestRunner","logOut"
