@@ -32,7 +32,7 @@ public class SignUpRunner extends SetUp {
 
        String firstName=faker.name().firstName();
        String lastName=faker.name().lastName();
-       String email="sqa.engineer+"+Utils.randomId(1000,9999)+"@gmail.com";
+       String email="sqa.engineer1997+"+Utils.randomId(1000,9999)+"@gmail.com";
        String password="1234";
        String phonenumber="0175"+ Utils.randomId(1000000,9999999);
        String address=faker.address().fullAddress();
