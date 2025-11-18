@@ -57,7 +57,6 @@ public class AdminLoginTestRunner extends SetUp {
         boolean isVisible= dashboardPage.btnIcon.get(0).isDisplayed();
 
 
-
         Assert.assertEquals(textHeaderActual,textHeaderExpected);
         Assert.assertEquals(isVisible,true);
 

@@ -42,7 +42,7 @@ test {
             systemProperties.put("suite",project.property("suite"))
         }
 
-       suites "./src/test/resources/"+project.property("suite")
+//       suites "./src/test/resources/"+project.property("suite")
 //        suites "./src/test/resources/RegressionSuite.xml"
     }
 }
