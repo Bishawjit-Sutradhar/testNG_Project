@@ -66,7 +66,7 @@ public class SignUpRunner extends SetUp {
    }
 
    //Save user Data
-   @Test(priority = 2,description = "Registration without Optional credentials")
+   @Test(priority = 2,description = "User can registration without Optional credentials")
    public void signUpWithOutOption() throws IOException, ParseException {
        SignUpPage signUpPage=new SignUpPage(driver);
 //       Utils.scroll(driver,500);
