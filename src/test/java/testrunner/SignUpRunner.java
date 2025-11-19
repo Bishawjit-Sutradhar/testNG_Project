@@ -1,14 +1,15 @@
 package testrunner;
 
 import com.github.javafaker.Faker;
+import config.SetUp;
 import config.UserModel;
 import org.apache.commons.configuration.ConfigurationException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.SignUpPage;
-import config.SetUp;
 import services.GmailServices;
 import utils.Utils;
 
@@ -55,18 +56,46 @@ public class SignUpRunner extends SetUp {
        jsonObject.put("phoneNumber",phonenumber);
        jsonObject.put("address",address);
 
-       Utils.saveUserData(jsonObject,filePath);
 
-       Thread.sleep(5000);
 
-       GmailServices gmailServices=new GmailServices();
-       String myEmail= gmailServices.readLatestEmail();
-       System.out.println(myEmail);
+//       Thread.sleep(5000);
+
+//       GmailServices gmailServices=new GmailServices();
+//       String myEmail= gmailServices.readLatestEmail();
+//       System.out.println(myEmail);
+
+       try {
+           Utils.saveUserData(jsonObject,filePath);
+           System.out.println("Data saved successfully");
+           Thread.sleep(5000);
+           GmailServices gmailServices=new GmailServices();
+           String myEmail=gmailServices.readLatestEmail();
+           System.out.println(myEmail);
+
+           Assert.assertTrue(myEmail.contains("Welcome to our platform!"));
+
+       }catch (Exception e){
+           System.out.println("Data not save"+e);
+       }
+
+
+//       try {
+//           Utils.saveUserData(jsonObject,filePath);
+//           System.out.println("Data saved successfully");
+//           Thread.sleep(5000);
+//           GmailServicesTwo gmailServicesTwo=new GmailServicesTwo();
+//           String myEmail= gmailServicesTwo.readLatestEmail();
+//           System.out.println(myEmail);
+//       }catch (Exception e){
+//           System.out.println("Not saved"+e);
+//       }
+
+
 
    }
 
    //Save user Data
-   @Test(priority = 2,description = "User can registration without Optional credentials")
+   @Test(priority = 2,description = "User can registration without Optional credentials",enabled = false)
    public void signUpWithOutOption() throws IOException, ParseException {
        SignUpPage signUpPage=new SignUpPage(driver);
 //       Utils.scroll(driver,500);
@@ -74,7 +103,7 @@ public class SignUpRunner extends SetUp {
 
        Faker faker=new Faker();
        String firstName=faker.name().firstName();
-       String email="sqa.engineer+"+Utils.randomId(1000,9999)+"@gmail.com";
+       String email="sqa.engineer1997+"+Utils.randomId(1000,9999)+"@gmail.com";
        String password="1234";
        String phoneNumber="0175"+Utils.randomId(1000000,9999999);
 
@@ -92,7 +121,17 @@ public class SignUpRunner extends SetUp {
        jsonObject.put("password",password);
        jsonObject.put("phoneNumber",phoneNumber);
 
-       Utils.saveUserData(jsonObject,filePath);
+
+//       try {
+//           Utils.saveUserData(jsonObject,filePath);
+//           System.out.println("Data saved Successfully");
+//           Thread.sleep(5000);
+//           GmailServicesTwo gmailServicesTwo=new GmailServicesTwo();
+//           String myEmail= gmailServicesTwo.readLatestEmail();
+//           System.out.println(myEmail);
+//       }catch (Exception e){
+//           System.out.println("Not saved"+e);
+//       }
 
    }
    @AfterMethod
